@@ -1,0 +1,38 @@
+This tutorial is a step by step guide to simulating traffic using SUMO and OpenStreetMap data. 
+
+You will need to understand how to navigate windows using the command prompt. See below for acquiring those skills. 
+https://www.youtube.com/watch?v=NAciF...
+
+Here are the notes from the video:
+Install notepad++ (or your favorite text editor)
+Install Python
+Install SUMO
+Download OSM data
+Copy additional polygons
+http://sumo.dlr.de/wiki/Networks/Impo...
+
+housekeeping
+
+remove power
+save as "typemap.xml"
+
+run start-command-line.bat
+
+netconvert --osm-files map.osm -o map.net.xml
+
+polyconvert --net-file map.net.xml --osm-files map.osm --type-file typemap.xml -o map.poly.xml
+
+
+python C:/Users/jsolly/Downloads/sumo/sumo-0.23.0/tools/trip/randomTrips.py -n map.net.xml -e 100 -l
+
+python C:/Users/jsolly/Downloads/sumo/sumo-0.23.0/tools/trip/randomTrips.py -n map.net.xml -r map.rou.xml -e 100 -l
+
+Copy and edit config file (test.sumo.cfg) ------> map.sumo
+
+additional files ------> map.poly.xml
+
+sumo-gui map.sumo.cfg
+
+
+
+http://www.aqualab.cs.northwestern.edu/projects/111-c3-car-to-car-cooperation-for-vehicular-ad-hoc-networks
